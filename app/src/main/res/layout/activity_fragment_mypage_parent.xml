@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/browser_actions_divider_color">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="마이페이지"
+        android:textSize="45dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="#2DB400"
+        android:gravity="center"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#2DB400"
+        android:text="개인정보 변경"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:id="@+id/bt_change_information"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#2DB400"
+        android:text="가족계정관리"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:id="@+id/bt_admin_family"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#2DB400"
+        android:text="로그아웃"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:id="@+id/bt_parent_logout"/>
+
+</LinearLayout>
