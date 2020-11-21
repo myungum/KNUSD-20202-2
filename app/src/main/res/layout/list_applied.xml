@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <TextView
+                android:text="이름"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/applied_name"/>
+            <TextView
+                android:text="아이디"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/applied_id"/>
+            <TextView
+                android:text="휴대전화"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/applied_pn"/>
+
+        </LinearLayout>
+        <Button
+            android:text="환자로"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/bt_applied_go_down"/>
+        <Button
+            android:text="삭제"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/bt_applied_delete"/>
+    </LinearLayout>
+</LinearLayout>

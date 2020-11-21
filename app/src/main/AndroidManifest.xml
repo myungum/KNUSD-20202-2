@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sd2020">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Check_pw"
+            android:label="@string/app_name"/>
+        <activity android:name=".Change_info"
+            android:label="@string/app_name"/>
+        <activity android:name=".LoginActivity"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Main"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".admin_family"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Apply_new_family"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Find_family"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Main2"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Link_existing_family"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Link_exsisting_family_page"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Find_id"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Sign_up"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".Find_pw"
+            android:label="@string/app_name"/>
+    </application>
+
+</manifest>
