@@ -33,16 +33,18 @@ public class Main2 extends AppCompatActivity {
         frag2=(TextView)findViewById(R.id.child_2);
         frag3=(TextView)findViewById(R.id.child_3);
         frag4=(TextView)findViewById(R.id.child_4);
+
         db= FirebaseDatabase.getInstance();
         mdr=db.getReference();
-        fragmentManager = getSupportFragmentManager();
-        fragment1=new Fragmentc1();
-        fragmentmpc=new mpcFragment();
-        fragment2=new Fragmentc2();
-        fragment3=new Fragmentc3();
         sf=getSharedPreferences("saved",0);
         cur_id=sf.getString("id","0");
         cur_family=sf.getString("family","0");
+
+        fragmentManager = getSupportFragmentManager();
+        fragment1=new Fragmentc1(cur_family);
+        fragmentmpc=new mpcFragment();
+        fragment2=new Fragmentc2();
+        fragment3=new Fragmentc3();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout_child, fragment1).commitAllowingStateLoss();
     }

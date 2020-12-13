@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.sd2020"
-        minSdkVersion 16
+        minSdkVersion 28
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:18.0.0'
     implementation 'com.google.firebase:firebase-auth:18.0.0'
     implementation 'com.google.firebase:firebase-inappmessaging-display:18.0.0'
+    implementation 'me.jlurena:revolvingweekview:1.0.0'
     testImplementation 'junit:junit:4.12'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
