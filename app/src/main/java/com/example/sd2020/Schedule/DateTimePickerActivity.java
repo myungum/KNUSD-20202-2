@@ -142,6 +142,17 @@ public class DateTimePickerActivity extends AppCompatActivity {
                     return;
                 }
 
+                int stTime = 60 * stHour + stMinute;
+                int edTime = 60 * edHour + edMinute;
+                if (stTime == edTime){
+                    Toast.makeText(getApplicationContext(), "오류 : 시작 시간이 종료 시간과 같을 수 없습니다", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if (stTime > edTime) {
+                    Toast.makeText(getApplicationContext(), "오류 : 시작 시간이 종료 시간보다 늦을 수 없습니다", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Work work = new Work(Work.WORK_TYPE.ONESHOT, plainTextName.getText().toString(), year, month, day, stHour, stMinute, edHour, edMinute);
                 Intent intent = getIntent();
                 intent.putExtra("result", "accept");
