@@ -16,16 +16,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_title"
-                android:layout_weight="1"
-                android:text="일기 제목"
-                android:adjustViewBounds="true"
-                android:layout_marginLeft="15dp"
-                android:textSize="32dp"
-                android:textColor="#ffffff"/>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:text="태그"
+            android:textColor="#ffffff"
+            android:textSize="32dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,17 +39,6 @@
                 android:textSize="20dp"
                 android:textColor="#ffffff"/>
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_write"
-        android:text="일기 내용"
-        android:textSize="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#ffffff"/>
 
 
 </LinearLayout>

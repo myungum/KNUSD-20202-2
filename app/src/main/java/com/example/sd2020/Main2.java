@@ -43,7 +43,7 @@ public class Main2 extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         fragment1=new Fragmentc1(cur_family);
         fragmentmpc=new mpcFragment();
-        fragment2=new Fragmentc2();
+        fragment2=new Fragmentc2(cur_family);
         fragment3=new Fragmentc3();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout_child, fragment1).commitAllowingStateLoss();

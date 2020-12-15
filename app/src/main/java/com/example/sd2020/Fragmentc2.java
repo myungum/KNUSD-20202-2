@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,8 +32,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static android.app.Activity.RESULT_OK;
+
 public class Fragmentc2 extends Fragment{
-    SharedPreferences sf;
     private Context mContext;
     private ArticleAdapter mAdapter;
 
@@ -42,21 +44,34 @@ public class Fragmentc2 extends Fragment{
     FirebaseDatabase Database = FirebaseDatabase.getInstance();
     DatabaseReference mDatabaseReference = Database.getReference();
     private FirebaseAuth mAuth= FirebaseAuth.getInstance();
+    private ArrayList<Article> articles = null;
 
-    String userEmail;
+    String familyId;
+    private final int ACTIVITY_CODE = 1;
+
+    public Fragmentc2(String familyId) {
+        this.familyId = familyId;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == ACTIVITY_CODE) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(this).attach(this).commit();
+            }
+        }
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.activity_fragment_c2, container, false);
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        sf = getActivity().getSharedPreferences("saved",0);
-        userEmail = sf.getString("id", "");
 
         button = (Button)getView().findViewById(R.id.button_write);
         button.setOnClickListener(new View.OnClickListener() {
@@ -68,50 +83,55 @@ public class Fragmentc2 extends Fragment{
 
         /*일기 리스트*/
         mContext = getContext();
-        final ArrayList<Article> articleList = new ArrayList<>();
         recyclerView = (RecyclerView)getView().findViewById(R.id.diary_Recycler);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
 
-        mDatabaseReference.child("Diary").addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabaseReference.child("Diary").child(familyId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Article article = postSnapshot.getValue(Article.class);
-                    if(article.getuserEmail().equals(userEmail)) {
-                        articleList.add(article);
+                // fragment 안죽었을때 대비
+                try {
+                    ArrayList<Article> articles_tmp = new ArrayList<>();
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        Article article = postSnapshot.getValue(Article.class);
+                        articles_tmp.add(article);
                     }
+                    articles = articles_tmp;
+                    mAdapter = new ArticleAdapter(articles);
+                    recyclerView.setAdapter(mAdapter);
                 }
-                mAdapter = new ArticleAdapter(articleList);
-                recyclerView.setAdapter(mAdapter);
+                catch (Exception e) {
+                    Log.i("Fragmentc2", e.getMessage());
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.w("TAG: ", "Failed to read value", databaseError.toException());
             }
-
         });
-
-        mAdapter = new ArticleAdapter(articleList);
-        recyclerView.setAdapter(mAdapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), recyclerView, new ClickListener() {
             public void onClick(View view, int position) {
-                Article article = articleList.get(position);
-                Intent intent;
-                intent = new Intent(getActivity(), WritediaryActivity.class);
-                intent.putExtra("it_id",article.getid());
-                intent.putExtra("userEmail",userEmail);
-                startActivity(intent);
-                getActivity().finish();
-                return;
+                try {
+                    Article article = articles.get(position);
+                    Intent intent;
+                    intent = new Intent(getActivity(), WritediaryActivity.class);
+                    intent.putExtra("id", article.getId());
+                    intent.putExtra("familyId", familyId);
+                    startActivityForResult(intent, ACTIVITY_CODE);
+                    //getActivity().finish();
+                }
+                catch (Exception e) {
+                    Log.e("Fragmentc2", e.getMessage());
+                }
             }
 
             @Override
             public void onLongClick(View view, int position) {
-                return;
+
             }
         }));
 
@@ -163,9 +183,9 @@ public class Fragmentc2 extends Fragment{
 
     public void go_writediary(View v){
         Intent intent = new Intent(getActivity(), WritediaryActivity.class);
-        intent.putExtra("it_id","null");
-        intent.putExtra("userEmail",userEmail);
-        startActivity(intent);
-        getActivity().finish();
+        intent.putExtra("id","null");
+        intent.putExtra("familyId", familyId);
+        startActivityForResult(intent, ACTIVITY_CODE);
+        //getActivity().finish();
     }
 }

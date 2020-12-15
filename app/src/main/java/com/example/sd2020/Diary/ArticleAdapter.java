@@ -56,9 +56,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     @Override
     public void onBindViewHolder(com.example.sd2020.Diary.ArticleAdapter.ViewHolder viewHolder, int position) {
         Article article = arrayList.get(position);
-        viewHolder.tv_title.setText(article.gettitle());
-        viewHolder.tv_date.setText(article.getdate());
-        viewHolder.tv_write.setText(article.getwrite());
+        viewHolder.tv_title.setText(article.getTag());
+        viewHolder.tv_date.setText(article.getDate());
     }
 
     // getItemCount() - 전체 데이터 갯수 리턴.
@@ -70,7 +69,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView tv_title;
         public TextView tv_date;
-        public TextView tv_write;
+       // public TextView tv_write; 20.12.15 삭제
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,7 +89,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             // 뷰 객체에 대한 참조. (hold strong reference)
             this.tv_title = (TextView) itemView.findViewById(R.id.tv_title);
             this.tv_date = (TextView) itemView.findViewById(R.id.tv_date);
-            this.tv_write = (TextView) itemView.findViewById(R.id.tv_write);
+            //this.tv_write = (TextView) itemView.findViewById(R.id.tv_write); 20.12.15 삭제
         }
     }
 

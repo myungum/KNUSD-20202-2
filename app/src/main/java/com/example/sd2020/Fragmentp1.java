@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.sd2020.Schedule.DateTimePickerActivity;
 import com.example.sd2020.Schedule.Schedule;
 import com.example.sd2020.Schedule.ScheduleEventListener;
 import com.example.sd2020.Schedule.Work;
@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import me.jlurena.revolvingweekview.WeekView;
 import me.jlurena.revolvingweekview.WeekViewEvent;

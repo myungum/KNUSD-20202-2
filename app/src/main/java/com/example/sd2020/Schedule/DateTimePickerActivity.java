@@ -1,4 +1,4 @@
-package com.example.sd2020;
+package com.example.sd2020.Schedule;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.sd2020.Schedule.Work;
+import com.example.sd2020.R;
 
 public class DateTimePickerActivity extends AppCompatActivity {
     private final int NULL = -1;

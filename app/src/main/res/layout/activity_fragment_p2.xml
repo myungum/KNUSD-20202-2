@@ -35,18 +35,18 @@
             android:background="@drawable/green_round_rectangle"/>
 
         <Button
+            android:id="@+id/button_write"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:id="@+id/button_write"
-            android:layout_marginTop="15dp"
-            android:text="일기 쓰기"
-            android:fontFamily="@font/womanflower"
-            android:textSize="30dp"
-            android:onClick="go_writediary"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
             android:background="@drawable/edge"
+            android:fontFamily="@font/womanflower"
+            android:onClick="go_writediary"
+            android:text="사진 추가"
             android:textColor="#ffffff"
-            android:textStyle="bold"/>
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

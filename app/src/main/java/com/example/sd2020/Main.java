@@ -42,7 +42,7 @@ public class Main extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         fragment1=new Fragmentp1(cur_family);
         fragmentmpp=new mppFragment();
-        fragment2=new Fragmentp2();
+        fragment2=new Fragmentp2(cur_family);
         fragment3=new Fragmentp3();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment1).commitAllowingStateLoss();

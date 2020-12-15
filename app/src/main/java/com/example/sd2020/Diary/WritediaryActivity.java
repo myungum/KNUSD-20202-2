@@ -63,19 +63,18 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 public class WritediaryActivity extends AppCompatActivity {
 
-    String str_id;
-    String str_date;
-    String str_title;
-    String str_write;
-    String userEmail;
-    String str_uri;
+    String strId;
+    String strFamilyId;
+    String strDate;
+    String strTag;
+    String strUri;
 
-    EditText et_title;
-    EditText et_date;
-    EditText et_write;
+    EditText etTag;
+    EditText etDate;
 
     // 파이어베이스 데이터베이스
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
@@ -110,30 +109,26 @@ public class WritediaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_writediary);
 
         Intent it = getIntent();
-        str_id = it.getStringExtra("it_id");
-        userEmail = it.getStringExtra("userEmail");
+        strId = it.getStringExtra("id");
+        strFamilyId = it.getStringExtra("familyId");
 
         /*Edit text*/
-        et_title = (EditText)findViewById(R.id.edittext_title);
-        et_date = (EditText)findViewById(R.id.edittext_date);
-        et_write = (EditText)findViewById(R.id.edittext_write);
+        etTag = (EditText)findViewById(R.id.edittext_title);
+        etDate = (EditText)findViewById(R.id.edittext_date);
         imageViewAddNameContest = (ImageView)findViewById(R.id.imageViewAddNameContest);
 
-        if(!str_id.equals("null")){
-            mDatabaseReference.child("Diary").child(str_id).addListenerForSingleValueEvent(new ValueEventListener() {
-
+        if(!strId.equals("null")){
+            mDatabaseReference.child("Diary").child(strFamilyId).child(strId).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Article article = dataSnapshot.getValue(Article.class);
-                    str_title = article.gettitle();
-                    str_date = article.getdate();
-                    str_write = article.getwrite();
-                    et_title.setText(str_title);
-                    et_date.setText(str_date);
-                    et_write.setText(str_write);
-                    str_uri = article.geturi_image();
-                    if(!str_id.equals("null")) {
-                        cameraUri = Uri.parse(str_uri);
+                    strTag = article.getTag();
+                    strDate = article.getDate();
+                    etTag.setText(strTag);
+                    etDate.setText(strDate);
+                    strUri = article.getUriImage();
+                    if(!strId.equals("null")) {
+                        cameraUri = Uri.parse(strUri);
                         Glide.with(WritediaryActivity.this).load(cameraUri).into(imageViewAddNameContest);
                         prefile = cameraUri;
                     }
@@ -151,8 +146,8 @@ public class WritediaryActivity extends AppCompatActivity {
             long now = System.currentTimeMillis();
             Date mDate = new Date(now);
             SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
-            str_date = simpleDate.format(mDate);
-            et_date.setText(str_date);
+            strDate = simpleDate.format(mDate);
+            etDate.setText(strDate);
             //et_date.setText(userEmail);
         }
 
@@ -187,15 +182,15 @@ public class WritediaryActivity extends AppCompatActivity {
     }
 
     public void delete(View v){
-        String path = "Diary/" + str_id + ".jpg";
+        String path = "Diary/" + strFamilyId + "/" + strId + ".jpg";
         imgReference = storageReference.child(path);
         imgReference.delete();
 
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mDatabaseReference.child("Diary").child(str_id).removeValue();
-                Log.d("일기","성공"+str_title);
+                mDatabaseReference.child("Diary").child(strFamilyId).child(strId).removeValue();
+                Log.d("일기","성공"+strTag);
             }
 
             @Override
@@ -204,7 +199,7 @@ public class WritediaryActivity extends AppCompatActivity {
             }
         });
 
-        mDatabaseReference.child("Diary").child(str_id).addChildEventListener(new ChildEventListener() {
+        mDatabaseReference.child("Diary").child(strFamilyId).child(strId).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
@@ -291,25 +286,26 @@ public class WritediaryActivity extends AppCompatActivity {
         time = cal_time(time);
         String endTime = time + startTime.substring(8, 14);
 
-        if(str_id.equals("null")){
-            str_id= Long.toString(now);
+        // 랜덤 id 생성
+        if(strId.equals("null")){
+            Random random = new Random();
+            strId= strFamilyId + "|" + now + "|" + random.nextLong();
         }
 
-        String path = "Diary/" + str_id + ".jpg";
+        String path = "Diary/" + strFamilyId + "/" + strId + ".jpg";
         imgReference = storageReference.child(path);
         if(file == null&&prefile==null) {
             Toast.makeText(this, "이미지 파일이 존재하지 않습니다!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        str_title = et_title.getText().toString().trim();
-        str_date = et_date.getText().toString().trim();
-        str_write = et_write.getText().toString().trim();
+        strTag = etTag.getText().toString().trim();
+        strDate = etDate.getText().toString().trim();
 
-        final Article nameContestData = new Article(str_id, str_date, str_title, str_write, userEmail, path);
+        final Article nameContestData = new Article(strId, strFamilyId, strDate, strTag, path);
 
         if(file==null){
-            nameContestData.seturi_image(prefile.toString());
+            nameContestData.setUriImage(prefile.toString());
             addFinalData(nameContestData);
         }
         else {
@@ -345,7 +341,7 @@ public class WritediaryActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     downloadUri=task.getResult();
                     assert downloadUri != null;
-                    nameContestData.seturi_image(downloadUri.toString());
+                    nameContestData.setUriImage(downloadUri.toString());
                     Log.v("ADDNAMECONTEST", "addFinalData()");
                     addFinalData(nameContestData);
                 }
@@ -358,8 +354,8 @@ public class WritediaryActivity extends AppCompatActivity {
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mDatabaseReference.child("Diary").child(str_id).setValue(nameContestData);
-                Log.d("일기","성공"+str_title);
+                mDatabaseReference.child("Diary").child(strFamilyId).child(strId).setValue(nameContestData);
+                Log.d("일기","성공"+strTag);
             }
 
             @Override
@@ -368,7 +364,9 @@ public class WritediaryActivity extends AppCompatActivity {
             }
         });
 
-        mDatabaseReference.child("Diary").child(str_id).addChildEventListener(new ChildEventListener() {
+
+        // 변경 이벤트가 있으면 현재 하던 행동 취소.. 아마 충돌 없애려고 만든듯
+        mDatabaseReference.child("Diary").child(strFamilyId).child(strId).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Intent intent = getIntent();
