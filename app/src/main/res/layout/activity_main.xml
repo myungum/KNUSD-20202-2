@@ -26,83 +26,76 @@
         android:layout_alignParentBottom="true">
 
         <LinearLayout
-            android:background="#AAAAAA"
+            android:background="#FFFFFF"
             android:id="@+id/btn_fragment1_p"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="clickHandler"
             android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:src="@drawable/pink_calendar"
+                android:id="@+id/parent_calendar"/>
             <TextView
-                android:clickable="true"
-                android:onClick="clickHandler"
                 android:id="@+id/parent_1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="1번"
+                android:text="스케줄"
                 android:gravity="center"
                 android:textSize="10dp"
-                android:textColor="#000000"/>
+                android:textColor="#FF1976"/>
         </LinearLayout>
         <LinearLayout
-            android:background="#AAAAAA"
+            android:background="#FFFFFF"
             android:id="@+id/btn_fragment2_p"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="clickHandler"
             android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:src="@drawable/gray_landscape"
+                android:id="@+id/parent_landscape"/>
             <TextView
-                android:clickable="true"
-                android:onClick="clickHandler"
                 android:id="@+id/parent_2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="2번"
+                android:text="스케줄"
                 android:gravity="center"
                 android:textSize="10dp"
-                android:textColor="#000000"/>
+                android:textColor="#BFBFBF"/>
         </LinearLayout>
         <LinearLayout
-        android:background="#AAAAAA"
-        android:id="@+id/btn_fragment3_p"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:onClick="clickHandler"
-        android:orientation="vertical">
-        <TextView
-            android:clickable="true"
-            android:onClick="clickHandler"
-            android:id="@+id/parent_3"
-            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:id="@+id/btn_fragment4_p"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="3번"
-            android:gravity="center"
-            android:textSize="10dp"
-            android:textColor="#000000"/>
-    </LinearLayout><LinearLayout
-        android:background="#AAAAAA"
-        android:id="@+id/btn_fragment4_p"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:onClick="clickHandler"
-        android:orientation="vertical">
-        <TextView
-            android:clickable="true"
             android:onClick="clickHandler"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:src="@drawable/gray_gear"
+                android:id="@+id/parent_gear"/>
+        <TextView
             android:id="@+id/parent_4"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:text="my page"
             android:gravity="center"
             android:textSize="10dp"
-            android:textColor="#000000"/>
+            android:textColor="#BFBFBF"/>
     </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

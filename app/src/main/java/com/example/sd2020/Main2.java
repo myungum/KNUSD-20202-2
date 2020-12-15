@@ -1,8 +1,10 @@
 package com.example.sd2020;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -18,21 +20,23 @@ public class Main2 extends AppCompatActivity {
     private Fragmentc1 fragment1;
     private mpcFragment fragmentmpc;
     private Fragmentc2 fragment2;
-    private Fragmentc3 fragment3;
     private FragmentTransaction transaction;
     SharedPreferences sf;
     FirebaseDatabase db;
     DatabaseReference mdr;
     String cur_id,cur_family;
-    TextView frag1,frag2,frag3,frag4;
+    TextView frag1,frag2,frag4;
+    ImageView frag1im,frag2im,frag4im;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_child);
         frag1=(TextView)findViewById(R.id.child_1);
         frag2=(TextView)findViewById(R.id.child_2);
-        frag3=(TextView)findViewById(R.id.child_3);
         frag4=(TextView)findViewById(R.id.child_4);
+        frag1im=(ImageView)findViewById(R.id.child_calendar);
+        frag2im=(ImageView)findViewById(R.id.child_landscape);
+        frag4im=(ImageView)findViewById(R.id.child_gear);
 
         db= FirebaseDatabase.getInstance();
         mdr=db.getReference();
@@ -44,7 +48,6 @@ public class Main2 extends AppCompatActivity {
         fragment1=new Fragmentc1(cur_family);
         fragmentmpc=new mpcFragment();
         fragment2=new Fragmentc2(cur_family);
-        fragment3=new Fragmentc3();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout_child, fragment1).commitAllowingStateLoss();
     }
@@ -55,18 +58,33 @@ public class Main2 extends AppCompatActivity {
 
         switch(view.getId())
         {
-            case R.id.child_1:
+            case R.id.btn_fragment1_c:
                 transaction.replace(R.id.frameLayout_child, fragment1).commitAllowingStateLoss();
+                frag1im.setImageResource(R.drawable.pink_calendar);
+                frag2im.setImageResource(R.drawable.gray_landscape);
+                frag4im.setImageResource(R.drawable.gray_gear);
+                frag1.setTextColor(Color.rgb(255,25,118));
+                frag2.setTextColor(Color.rgb(191,191,191));
+                frag4.setTextColor(Color.rgb(191,191,191));
 
                 break;
-            case R.id.child_2:
+            case R.id.btn_fragment2_c:
                 transaction.replace(R.id.frameLayout_child, fragment2).commitAllowingStateLoss();
+                frag1im.setImageResource(R.drawable.gray_calendar);
+                frag2im.setImageResource(R.drawable.pink_landscape);
+                frag4im.setImageResource(R.drawable.gray_gear);
+                frag1.setTextColor(Color.rgb(191,191,191));
+                frag2.setTextColor(Color.rgb(255,25,118));
+                frag4.setTextColor(Color.rgb(191,191,191));
                 break;
-            case R.id.child_3:
-                transaction.replace(R.id.frameLayout_child, fragment3).commitAllowingStateLoss();
-                break;
-            case R.id.child_4:
+            case R.id.btn_fragment4_c:
                 transaction.replace(R.id.frameLayout_child, fragmentmpc).commitAllowingStateLoss();
+                frag1im.setImageResource(R.drawable.gray_calendar);
+                frag2im.setImageResource(R.drawable.gray_landscape);
+                frag4im.setImageResource(R.drawable.pink_gear);
+                frag1.setTextColor(Color.rgb(191,191,191));
+                frag2.setTextColor(Color.rgb(191,191,191));
+                frag4.setTextColor(Color.rgb(255,25,118));
                 break;
         }
     }
