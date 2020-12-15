@@ -37,6 +37,7 @@ public class admin_family extends AppCompatActivity {
     TextView tv_id,tv_nm;
     int cnt=0;
     int p1,p2;
+    TextView tv_apply;
     public void onBackPressed() {
         super.onBackPressed();
         Intent it = new Intent(admin_family.this, Main.class);
@@ -50,6 +51,7 @@ public class admin_family extends AppCompatActivity {
         bt_ok=(Button)findViewById(R.id.bt_admin_family_ok);
         tv_id=(TextView)findViewById(R.id.child_id);
         tv_nm=(TextView)findViewById(R.id.child_name);
+        tv_apply=(TextView)findViewById(R.id.admin_family_apply);
         bt_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,16 +125,18 @@ public class admin_family extends AppCompatActivity {
         arecyclerView.setLayoutManager(alayoutManager);
         aarrayList=new ArrayList<>();
 
-        mdr.child("family").child("member").child(saved_family).child("The_wait").addValueEventListener(new ValueEventListener() {
+        mdr.child("family").child("member").child(saved_family).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.child("The_wait").hasChildren())tv_apply.setVisibility(View.VISIBLE);
+                else tv_apply.setVisibility(View.INVISIBLE);
                 aarrayList.clear();
-                for(DataSnapshot snapshot:dataSnapshot.getChildren())
+                for(DataSnapshot snapshot:dataSnapshot.child("The_wait").getChildren())
                 {
                     String name,id,pn;
-                    name=snapshot.child("name").getValue().toString();
-                    id=snapshot.child("id").getValue().toString();
-                    pn=snapshot.child("pn").getValue().toString();
+                    name="이름 : "+snapshot.child("name").getValue().toString();
+                    id="아이디 : "+snapshot.child("id").getValue().toString();
+                    pn="전화번호 : "+snapshot.child("pn").getValue().toString();
                     Parent parent=new Parent(name,id,pn);
                     aarrayList.add(parent);
                 }
@@ -153,9 +157,9 @@ public class admin_family extends AppCompatActivity {
             @Override
             public void onGoDownClicked(int position) {
                 if(cnt==0) {
-                    temp_name = aarrayList.get(position).getName();
-                    temp_id = aarrayList.get(position).getId();
-                    temp_pn = aarrayList.get(position).getPn();
+                    temp_name = aarrayList.get(position).getName().substring(5);
+                    temp_id = aarrayList.get(position).getId().substring(6);
+                    temp_pn = aarrayList.get(position).getPn().substring(7);
                     p2 = position;
                     mdr.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -199,10 +203,9 @@ public class admin_family extends AppCompatActivity {
 
             @Override
             public void onDeleteClicked(int position) {
-                temp_name = aarrayList.get(position).getName();
-                temp_id = aarrayList.get(position).getId();
-                temp_pn = aarrayList.get(position).getPn();
-                Toast.makeText(admin_family.this,"삭제",Toast.LENGTH_LONG).show();
+                temp_name = aarrayList.get(position).getName().substring(5);
+                temp_id = aarrayList.get(position).getId().substring(6);
+                temp_pn = aarrayList.get(position).getPn().substring(7);
                 mdr.child("user").child(temp_id).child("applied").removeValue();
                 mdr.child("family").child("member").child(saved_family).child("The_wait").child(temp_id).removeValue();
             }
