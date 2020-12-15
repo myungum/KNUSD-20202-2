@@ -54,6 +54,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -322,6 +323,37 @@ public class WritediaryActivity extends AppCompatActivity {
 
                 }
             });
+        }
+    }
+
+    public void imageDownload(View v){
+        if(strId.equals("null")){
+            Toast.makeText(this, "이미지 파일이 존재하지 않습니다!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String path = "Diary/" + strFamilyId + "/" + strId + ".jpg";
+        imgReference = storageReference.child(path);
+
+        try{
+            File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            final File localFile = File.createTempFile(strId, ".jpg", storageDir);
+            imgReference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(getApplicationContext(), "다운로드 성공", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                    intent.setData(Uri.fromFile(localFile));
+                    sendBroadcast(intent);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Toast.makeText(getApplicationContext(), "다운로드 실패", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (IOException e) { Toast.makeText(getApplicationContext(), "다운로드 실패", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
     }
 

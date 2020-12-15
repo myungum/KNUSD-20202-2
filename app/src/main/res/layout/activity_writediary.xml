@@ -106,6 +106,20 @@
                     android:textColor="#ffffff"
                     android:textStyle="bold"/>
 
+                <Button
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/button_download"
+                    android:layout_marginTop="15dp"
+                    android:text="사진다운"
+                    android:fontFamily="@font/womanflower"
+                    android:onClick="imageDownload"
+                    android:textSize="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edge"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"/>
+
             </LinearLayout>
         </ScrollView>
 
