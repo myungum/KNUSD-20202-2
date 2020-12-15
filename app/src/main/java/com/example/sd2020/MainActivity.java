@@ -54,7 +54,8 @@ public class MainActivity extends Activity {
     FirebaseDatabase db;
     DatabaseReference mdr;
     String saved_id,saved_pw,changed_pw,saved_family;
-
+    public void onBackPressed() {
+    }
     // 메인액티비티 수정입니다
 
     @Override

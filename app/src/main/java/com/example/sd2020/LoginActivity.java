@@ -33,7 +33,11 @@ public class LoginActivity extends AppCompatActivity{
     String cur_id,cur_pw,changed_pw;
     boolean isChecked_auto_login=false;
     SharedPreferences sf;
-    private FirebaseAuth mAuth;
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        finishAndRemoveTask();
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +47,6 @@ public class LoginActivity extends AppCompatActivity{
         mdr=db.getReference();
         ed_id=(EditText)findViewById(R.id.id);
         ed_pw=(EditText)findViewById(R.id.password);
-        mAuth=FirebaseAuth.getInstance();
         Button bt_login=(Button)findViewById(R.id.bt_login);
         Button bt_signup=(Button)findViewById(R.id.bt_sign_up);
         Button bt_findid=(Button)findViewById(R.id.bt_find_id);
