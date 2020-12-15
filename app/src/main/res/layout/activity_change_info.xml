@@ -3,16 +3,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/browser_actions_divider_color">
-    <TextView
+    android:background="#FFFFFF">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="개인정보 변경"
-        android:textSize="50dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textColor="#2DB400"
-        android:gravity="center"/>
+        android:background="#ffffff"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.2" />
+        <Button
+            android:id="@+id/bt_change_information_go_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/left_arrow" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.6" />
+
+        <TextView
+            android:id="@+id/title_of_admin"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="개인정보 변경"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1.1" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.1" />
+    </LinearLayout>
+    <View
+        android:id="@+id/change_view1"
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
     <LinearLayout
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -21,11 +58,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
+            android:textSize="15dp"
+            android:textColor="#000000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="비밀번호 변경"/>
 
         <EditText
+            android:password="true"
+            android:hint="******"
             android:id="@+id/et_change_pw1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +74,14 @@
             android:background="#FFFFFF"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <View
+        android:id="@+id/change_view2"
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,11 +96,15 @@
             android:layout_weight="8"
             android:orientation="vertical">
             <TextView
+                android:textSize="15dp"
+                android:textColor="#000000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="비밀번호 재확인"/>
 
             <EditText
+                android:password="true"
+                android:hint="******"
                 android:id="@+id/et_change_pw2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,15 +114,25 @@
         </LinearLayout>
 
         <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="#ffffff"
             android:id="@+id/bt_change_pw"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
-            android:background="#2DB400"
             android:text="확인"
-            android:textColor="#FFFFFF" />
+            android:textColor="#000000" />
     </LinearLayout>
+
+    <View
+        android:id="@+id/change_view3"
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,11 +146,13 @@
             android:layout_weight="8"
             android:orientation="vertical">
             <TextView
+                android:textSize="15dp"
+                android:textColor="#000000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="이메일 변경"/>
-
             <EditText
+                android:hint="hongildong@gmail.com"
                 android:id="@+id/et_change_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -97,15 +162,25 @@
         </LinearLayout>
 
         <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="#ffffff"
             android:id="@+id/bt_change_email"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
-            android:background="#2DB400"
             android:text="확인"
-            android:textColor="#FFFFFF" />
+            android:textColor="#000000"/>
     </LinearLayout>
+
+    <View
+        android:id="@+id/change_view4"
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -119,11 +194,14 @@
             android:layout_weight="8"
             android:orientation="vertical">
             <TextView
+                android:textSize="15dp"
+                android:textColor="#000000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="핸드폰 번호 변경"/>
+                android:text="전화번호 변경"/>
 
             <EditText
+                android:hint="010********"
                 android:id="@+id/et_change_pn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,25 +211,25 @@
         </LinearLayout>
 
         <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="#ffffff"
             android:id="@+id/bt_change_pn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
-            android:background="#2DB400"
             android:text="확인"
-            android:textColor="#FFFFFF" />
+            android:textColor="#000000" />
     </LinearLayout>
 
-    <Button
+    <View
+        android:id="@+id/change_view5"
+        android:background="@color/Pink2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#2DB400"
-        android:text="확인"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/bt_change_information_go_back"/>
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"/>
+
 
 </LinearLayout>

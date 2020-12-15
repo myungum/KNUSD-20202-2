@@ -3,32 +3,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/browser_actions_divider_color">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="가족 계정 관리"
-        android:textSize="45dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textColor="#2DB400"
-        android:gravity="center"/>
+    android:background="#EEEEEE">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.2" />
+        <Button
+            android:id="@+id/bt_admin_family_ok"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/left_arrow" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.6" />
+
+        <TextView
+            android:id="@+id/title_of_admin"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="피보호자 계정 관리"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1.1" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.1" />
+    </LinearLayout>
+    <View
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical">
         <TextView
+            android:textSize="17dp"
+            android:textColor="#000000"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:text="자식 계정"/>
+            android:text="피보호자 계정"/>
+        <View
+            android:background="@color/Pink2"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
+                android:textColor="#000000"
                 android:layout_marginTop="10dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -37,6 +88,7 @@
                 android:layout_weight="1"
                 android:text="이름"/>
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/child_name"
                 android:layout_marginTop="10dp"
                 android:layout_width="0dp"
@@ -51,6 +103,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
+                android:textColor="#000000"
                 android:layout_marginTop="10dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -59,6 +112,7 @@
                 android:layout_weight="1"
                 android:text="아이디"/>
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/child_id"
                 android:layout_marginTop="10dp"
                 android:layout_width="0dp"
@@ -67,47 +121,63 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="3"
                 android:text="없음"/>
+
         </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/Pink2"
+            android:text="삭제"
+           android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/bt_delete_child"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="vertical">
+        <TextView
+            android:textSize="17dp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="신청받은 목록"/>
+        <View
+            android:background="@color/Pink2"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_applied"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/admin_family_apply"
+            android:textSize="15dp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:text="신청 받은 계정이 없습니다"/>
+
+
     </LinearLayout>
 
-    <Button
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="#2DB400"
-        android:text="삭제"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/bt_delete_child"
-        />
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="신청받은 목록"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_applied"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"/>
-    <Button
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="#2DB400"
-        android:text="확인"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/bt_admin_family_ok"
-        />
 
 </LinearLayout>

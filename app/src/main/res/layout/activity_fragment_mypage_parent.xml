@@ -3,48 +3,169 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/browser_actions_divider_color">
-    <TextView
+    android:background="@color/pinkWeak">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="마이페이지"
-        android:textSize="45dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textColor="#2DB400"
-        android:gravity="center"/>
-    <Button
-        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1.1" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="환경 설정"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="#ffffff"
+            android:id="@+id/bt_parent_logout"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@color/Pink1"
+            android:text="로그아웃" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.1" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view"
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="#2DB400"
-        android:text="개인정보 변경"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/bt_change_information"/>
-    <Button
-        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:background="@color/pinkPrimary"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="30dp"
+            android:textColor="@color/pinkAccent"
+            android:text=" # 내 정보" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mp_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:text="이   름     : "
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:text="아이디    :"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_rel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:text="권한 : "
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_tel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="전화번호 : "
+                android:textColor="#000"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="#2DB400"
-        android:text="가족계정관리"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/bt_admin_family"/>
-    <Button
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="#2DB400"
-        android:text="로그아웃"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/bt_parent_logout"/>
+        android:paddingTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:background="@color/pinkPrimary"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="30dp"
+            android:textColor="@color/pinkAccent"
+            android:text=" # 회원 정보 관리" />
+
+        <Button
+            android:background="@color/pinkWeak"
+            android:textColor="#000"
+            android:id="@+id/bt_admin_family"
+            android:layout_width="match_parent"
+            android:paddingLeft="5dp"
+            android:gravity="center_vertical"
+            android:textSize="15dp"
+            android:layout_height="wrap_content"
+            android:text="피보호자 계정 관리" />
+
+        <View
+            android:background="@color/Pink2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <Button
+            android:background="@color/pinkWeak"
+            android:textColor="#000"
+            android:id="@+id/bt_change_information"
+            android:paddingLeft="5dp"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="15dp"
+            android:layout_height="wrap_content"
+            android:text="개인정보 변경" />
+
+
+        <View
+            android:background="@color/Pink2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+    </LinearLayout>
+
+
+
+
+
 
 </LinearLayout>
