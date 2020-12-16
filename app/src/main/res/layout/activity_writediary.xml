@@ -38,7 +38,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp">
+            android:layout_marginBottom="50dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/green_round_rectangle">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,8 +52,8 @@
                     android:layout_width="320dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edge"
                     android:fontFamily="@font/womanflower"
                     android:hint="태그 입력"
@@ -120,15 +122,11 @@
                     android:layout_gravity="center"
                     android:background="@drawable/edge"
                     android:textColor="#ffffff"
+                    android:layout_marginBottom="20dp"
                     />
 
             </LinearLayout>
         </ScrollView>
-
-        <View
-            android:background="@color/Pink2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" />
 
     </LinearLayout>
 
