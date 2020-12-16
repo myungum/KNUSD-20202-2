@@ -19,4 +19,7 @@
     <color name="iconAccent">#91ACDC</color>
     <color name="colorWhite">#FFFF</color>
     <color name="colorCancel">#E5E5E5</color>
+
+    <color name="colorKnu">#da2127</color>
+    <color name="colorKnuGrey">#8a8a88</color>
 </resources>

@@ -3,67 +3,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="치매\n지키미"
-        android:textSize="100dp"
-        android:gravity="center"/>
-    <EditText
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="아이디"
-        android:id="@+id/id"/>
-    <EditText
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="비밀번호"
-        android:id="@+id/password"/>
-    <Button
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        android:id="@+id/bt_login"/>
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그인 상태 유지"
-        android:id="@+id/cb_login_state"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="아이디 찾기"
-            android:id="@+id/bt_find_id"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="비밀번호 찾기"
-            android:id="@+id/bt_find_password"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="회원가입"
-            android:id="@+id/bt_sign_up"/>
+            android:text="치매\n지키미"
+            android:textColor="@color/colorKnu"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:textSize="80dp"
+            android:gravity="center"/>
     </LinearLayout>
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/test_id"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/test_pw"/>
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:hint="   아이디"
+            android:id="@+id/id"
+            android:background="@drawable/layout_round"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            android:hint="   비밀번호"
+            android:id="@+id/password"
+            android:background="@drawable/layout_round"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="로그인"
+            android:id="@+id/bt_login"
+            android:background="@drawable/button_red_medium"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="로그인 상태 유지"
+            android:id="@+id/cb_login_state"
+            android:buttonTint="@color/colorKnu"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="아이디 찾기"
+                android:id="@+id/bt_find_id"
+                android:background="@drawable/button_blue_medium"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="비밀번호 찾기"
+                android:id="@+id/bt_find_password"
+                android:background="@drawable/button_blue_medium"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="회원가입"
+                android:id="@+id/bt_sign_up"
+                android:background="@drawable/button_blue_medium"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
 </LinearLayout>

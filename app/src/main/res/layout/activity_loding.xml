@@ -1,13 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorKnu">
+
+    <LinearLayout
+        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="로딩중..."
-        android:textColor="#2DB400"
-        android:gravity="center"
-        android:textSize="100dp"/>
+        android:layout_height="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:textColor="#FFFFFF"
+                android:textSize="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="치매\n지키미" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:text="    로딩중 ..."
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:text="COPYRIGHT ⓒ 2020 SD 2조 \nALL RIGHTS RESERVED."
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
