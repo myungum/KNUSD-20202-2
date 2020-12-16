@@ -2,38 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/common_google_signin_btn_text_dark_disabled">
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:text="비밀번호 찾기"
         android:textSize="50dp"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textColor="#2DB400"
+        android:fontFamily="@font/cafe24oneprettynight"
         android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
     <TextView
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="아이디"
+        android:fontFamily="@font/cafe24oneprettynight"
+        android:textSize="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
     <EditText
         android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:inputType="textEmailAddress"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/layout_round"
         android:id="@+id/find_pw_id"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="이름"
+        android:fontFamily="@font/cafe24oneprettynight"
+        android:textSize="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"/>
@@ -41,15 +57,17 @@
         android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:inputType="textEmailAddress"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/layout_round"
         android:id="@+id/find_pw_nm"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -62,15 +80,19 @@
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="이메일"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="이메일"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/find_pw_em"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_marginTop="10dp"
-                android:background="#FFFFFF"
+                android:background="@drawable/layout_round"
                 android:textSize="18sp"
                 android:inputType="textEmailAddress" />
         </LinearLayout>
@@ -81,13 +103,13 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
-            android:background="#2DB400"
-            android:text="인증번호\n전송"
-            android:textColor="#FFFFFF" />
+            android:background="@drawable/button_blue_small"
+            android:text="인증번호\n전송" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -95,20 +117,24 @@
         android:layout_marginBottom="10dp">
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="8"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="인증번호"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="인증번호"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/find_pw_key"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_marginTop="10dp"
-                android:background="#FFFFFF"
+                android:background="@drawable/layout_round"
                 android:textSize="18sp"
                 android:inputType="textEmailAddress" />
         </LinearLayout>
@@ -119,37 +145,52 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
-            android:background="#2DB400"
-            android:text="인증번호\n확인"
-            android:textColor="#FFFFFF" />
+            android:background="@drawable/button_blue_small"
+            android:text="인증번호\n확인" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
     <TextView
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="임시비밀번호"
+        android:fontFamily="@font/cafe24oneprettynight"
+        android:textSize="24dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
     <TextView
         android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/layout_round"
         android:id="@+id/find_pw_pw"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <Button
-        android:layout_marginTop="10dp"
+        android:id="@+id/find_pw_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#2DB400"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_red_medium"
         android:text="확인"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/find_pw_ok"/>
+        android:textSize="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
 
 </LinearLayout>

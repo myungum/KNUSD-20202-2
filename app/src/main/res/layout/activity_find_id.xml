@@ -2,98 +2,138 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/common_google_signin_btn_text_dark_disabled">
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:text="아이디 찾기"
         android:textSize="50dp"
-        android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textColor="#2DB400"
+        android:fontFamily="@font/cafe24oneprettynight"
         android:gravity="center"/>
-    <TextView
-        android:layout_marginTop="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="이름"
+        android:fontFamily="@font/cafe24oneprettynight"
+        android:textSize="32dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
     <EditText
-        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:inputType="textEmailAddress"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#FFFFFF"
-        android:id="@+id/find_id_nm"/>
+        android:background="@drawable/layout_round"
+        android:id="@+id/find_id_nm" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="8"
             android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="이메일"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="이메일"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:textSize="32dp"/>
 
             <EditText
                 android:id="@+id/find_id_em"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="#FFFFFF"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/layout_round"
                 android:textSize="18sp"
                 android:inputType="textEmailAddress" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/find_id_bt"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
             android:layout_weight="2"
-            android:background="#2DB400"
-            android:text="아이디 찾기"
-            android:textColor="#FFFFFF" />
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/find_id_bt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="2"
+                android:background="@drawable/button_blue_small"
+                android:text="검색"
+                android:textSize="20dp"/>
+        </LinearLayout>
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="아이디"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="검색된 아이디"
+        android:fontFamily="@font/cafe24oneprettynight"
+        android:textSize="32dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/find_id_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/layout_round"
         android:textSize="18sp" />
-    <Button
-        android:layout_marginTop="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#2DB400"
+        android:background="@drawable/button_red_medium"
         android:text="확인"
-        android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:id="@+id/bt_ok"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
 </LinearLayout>

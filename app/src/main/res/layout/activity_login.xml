@@ -29,22 +29,52 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"/>
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:inputType="text"
-            android:hint="   아이디"
-            android:id="@+id/id"
-            android:background="@drawable/layout_round"/>
-        <EditText
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:inputType="text"
+                android:hint="   아이디"
+                android:id="@+id/id"
+                android:background="@drawable/layout_round"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:inputType="textPassword"
-            android:hint="   비밀번호"
-            android:id="@+id/password"
-            android:background="@drawable/layout_round"/>
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:inputType="textPassword"
+                android:hint="   비밀번호"
+                android:id="@+id/password"
+                android:background="@drawable/layout_round"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
