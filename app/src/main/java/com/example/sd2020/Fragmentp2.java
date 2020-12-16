@@ -1,10 +1,14 @@
 package com.example.sd2020;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -40,6 +44,9 @@ import static android.app.Activity.RESULT_OK;
 public class Fragmentp2 extends Fragment{
     private Context mContext;
     private ArticleAdapter mAdapter;
+
+    int standardSize_X, standardSize_Y;
+    float density;
 
     private Button button;
     private RecyclerView recyclerView;
@@ -91,6 +98,7 @@ public class Fragmentp2 extends Fragment{
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.getLayoutParams().height = standardSize_Y;
 
         mDatabaseReference.child("Diary").child(familyId).addValueEventListener(new ValueEventListener() {
             @Override
@@ -136,6 +144,7 @@ public class Fragmentp2 extends Fragment{
             }
         }));
     }
+
 
     public interface ClickListener {
         void onClick(View view, int position);
