@@ -305,6 +305,11 @@ public class WritediaryActivity extends AppCompatActivity {
 
         final Article nameContestData = new Article(strId, strFamilyId, strDate, strTag, path);
 
+        if(strTag.equals("")){
+            ToastText("태그를 입력해주세요.");
+            return;
+        }
+        
         if(file==null){
             nameContestData.setUriImage(prefile.toString());
             addFinalData(nameContestData);
