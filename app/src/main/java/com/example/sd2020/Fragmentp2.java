@@ -98,7 +98,6 @@ public class Fragmentp2 extends Fragment{
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.getLayoutParams().height = standardSize_Y;
 
         mDatabaseReference.child("Diary").child(familyId).addValueEventListener(new ValueEventListener() {
             @Override
