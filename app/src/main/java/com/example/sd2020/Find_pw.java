@@ -90,7 +90,7 @@ public class Find_pw extends AppCompatActivity {
                                     try {
 
                                         sender.sendMail("[치매노인지키미]비밀번호 인증번호입니다", key,
-                                                email, "sm970124@gmail.com");
+                                                email, email);
                                         sw_send = true;
                                     } catch (Exception e) {
                                         Toast.makeText(Find_pw.this, "예상치 못한 오류로 조금 뒤에 인증 부탁드립니다..", Toast.LENGTH_LONG).show();
