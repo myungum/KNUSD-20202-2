@@ -36,6 +36,12 @@ public class Sign_up extends AppCompatActivity {
     String id;
     FirebaseDatabase db;
     String pattern = "^[a-zA-Z0-9]{3,12}$";
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent(Sign_up.this, LoginActivity.class);
+        startActivity(it);
+        finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
