@@ -77,33 +77,32 @@ public class Find_pw extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (sw_fin) return;
-                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                String cur_name = snapshot.child("name").getValue().toString();
-                                String cur_email = snapshot.child("email").getValue().toString();
-                                if (dataSnapshot.hasChild(id)) {
-                                    if (dataSnapshot.child(id).child("name").getValue().toString().equals(name) &&
-                                            dataSnapshot.child(id).child("email").getValue().toString().equals(email)) {
-                                        Random mr = new Random();
-                                        key = "";
-                                        for (int i = 0; i < 6; i++) {
-                                            key += "" + mr.nextInt(10);
-                                        }
-                                        GmailSender sender = new GmailSender("sm970124@gmail.com", "!thdtmdals7517");
-                                        try {
-
-                                            sender.sendMail("[치매노인지키미]비밀번호 인증번호입니다", key,
-                                                    email, "sm970124@gmail.com");
-                                            sw_send = true;
-                                        } catch (Exception e) {
-                                            Toast.makeText(Find_pw.this, "예상치 못한 오류로 조금 뒤에 인증 부탁드립니다..", Toast.LENGTH_LONG).show();
-                                        }
-                                        Toast.makeText(Find_pw.this, "입력하신 이메일로 인증번호를 보냈습니다.", Toast.LENGTH_LONG).show();
-                                    } else {
-                                        Toast.makeText(Find_pw.this, "개인정보가 올바르지 않습니다.", Toast.LENGTH_LONG).show();
+                            if(dataSnapshot.hasChild(id)){
+                                String cur_name = dataSnapshot.child(id).child("name").getValue().toString();
+                                String cur_email = dataSnapshot.child(id).child("email").getValue().toString();
+                                if (cur_name.equals(name) && cur_email.equals(email)) {
+                                    Random mr = new Random();
+                                    key = "";
+                                    for (int i = 0; i < 6; i++) {
+                                        key += "" + mr.nextInt(10);
                                     }
-                                } else {
-                                    Toast.makeText(Find_pw.this, "개인정보가 올바르지 않습니다.", Toast.LENGTH_LONG).show();
+                                    GmailSender sender = new GmailSender("sm970124@gmail.com", "vclvhodvlkvnqbez");
+                                    try {
+
+                                        sender.sendMail("[치매노인지키미]비밀번호 인증번호입니다", key,
+                                                email, "sm970124@gmail.com");
+                                        sw_send = true;
+                                    } catch (Exception e) {
+                                        Toast.makeText(Find_pw.this, "예상치 못한 오류로 조금 뒤에 인증 부탁드립니다..", Toast.LENGTH_LONG).show();
+                                    }
+                                    Toast.makeText(Find_pw.this, "입력하신 이메일로 인증번호를 보냈습니다.", Toast.LENGTH_SHORT).show();
                                 }
+                                else{
+                                    Toast.makeText(Find_pw.this, "개인정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            else{
+                                Toast.makeText(Find_pw.this, "개인정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
 
