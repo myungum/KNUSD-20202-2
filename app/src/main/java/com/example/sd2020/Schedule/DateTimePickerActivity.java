@@ -42,7 +42,7 @@ public class DateTimePickerActivity extends AppCompatActivity {
                             year = i;
                             month = i1;
                             day = i2;
-                            plainTextDate.setText(i + "년 " + i1 + "월 " + i2 + "일 ");
+                            plainTextDate.setText(i + "년 " + (i1 + 1) + "월 " + i2 + "일 ");
                         }
                     };
                     final Calendar c = Calendar.getInstance();
