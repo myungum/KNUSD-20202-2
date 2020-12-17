@@ -19,7 +19,7 @@ public class Main2 extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private Fragmentc1 fragment1;
     private mpcFragment fragmentmpc;
-    private Fragmentc2 fragment2;
+    private Fragmentp2 fragment2;
     private FragmentTransaction transaction;
     SharedPreferences sf;
     FirebaseDatabase db;
@@ -47,7 +47,7 @@ public class Main2 extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         fragment1=new Fragmentc1(cur_family);
         fragmentmpc=new mpcFragment();
-        fragment2=new Fragmentc2(cur_family);
+        fragment2=new Fragmentp2(cur_family);
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout_child, fragment1).commitAllowingStateLoss();
     }

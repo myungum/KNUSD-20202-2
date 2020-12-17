@@ -3,19 +3,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1.1" />
+
+        <TextView
+            android:id="@+id/title_of_admin"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="그룹 계정 연동하기"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1.1" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.1" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view1"
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="새로운 가족 계정\n만들기"
+        android:text="새로운 그룹 계정\n만들기"
         android:textSize="50dp"
         android:id="@+id/bt_make_new_family_accaount"
+        android:background="@color/cardview_light_background"
         />
+    <View
+        android:id="@+id/view2"
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="기존의 가족 계정\n연동하기"
+        android:text="기존의 그룹 계정\n연동하기"
         android:background="@color/cardview_light_background"
         android:textSize="50dp"
         android:id="@+id/bt_link_existing_family_account"

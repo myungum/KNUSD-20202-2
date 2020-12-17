@@ -3,21 +3,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/browser_actions_divider_color">
-    <TextView
+    android:background="#FFFFFF">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="부모 계정 연동하기"
-        android:textSize="45dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textColor="#2DB400"
-        android:gravity="center"/>
+        android:background="#ffffff"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.2" />
+        <Button
+            android:id="@+id/bt_link_existing_family_account_ok"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/left_arrow" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.6" />
+
+        <TextView
+            android:id="@+id/title_of_admin"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="그룹 계정 연동하기"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1.1" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="0.1" />
+    </LinearLayout>
+    <View
+        android:background="@color/Pink2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
     <TextView
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="연동 신청된 가족 계정 아이디"
+        android:textColor="#000000"
+        android:text="연동 신청된 그룹 계정 아이디"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
     <TextView
@@ -27,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:textColor="#000000"
         android:background="#FFFFFF"
         android:id="@+id/tv_linked_family_id"/>
     <Button
@@ -35,21 +74,10 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="#2DB400"
+        android:background="@color/Pink2"
         android:text="기존 부모 계정에 연동하기"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:id="@+id/bt_link_family_account"/>
-    <Button
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="#2DB400"
-        android:text="확인"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:id="@+id/bt_link_existing_family_account_ok"/>
 
 </LinearLayout>
