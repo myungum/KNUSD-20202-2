@@ -197,6 +197,7 @@ public class WritediaryActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d("일기","실패");
+                ToastText("삭제 실패");
             }
         });
 
@@ -213,6 +214,7 @@ public class WritediaryActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                ToastText("삭제되었습니다");
                 Intent intent = getIntent();
                 intent.putExtra("result", "cancel");
                 setResult(RESULT_OK, intent);
@@ -226,7 +228,7 @@ public class WritediaryActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                ToastText("삭제 실패");
             }
         });
 
@@ -325,7 +327,7 @@ public class WritediaryActivity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-
+                    ToastText("업로드 실패");
                 }
             });
         }
@@ -397,6 +399,7 @@ public class WritediaryActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                ToastText("업로드 실패");
                 Log.d("일기","실패");
             }
         });
@@ -406,6 +409,7 @@ public class WritediaryActivity extends AppCompatActivity {
         mDatabaseReference.child("Diary").child(strFamilyId).child(strId).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                ToastText("업로드 성공");
                 Intent intent = getIntent();
                 intent.putExtra("result", "cancel");
                 setResult(RESULT_OK, intent);
@@ -414,6 +418,7 @@ public class WritediaryActivity extends AppCompatActivity {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                ToastText("업로드 성공");
                 Intent intent = getIntent();
                 intent.putExtra("result", "cancel");
                 setResult(RESULT_OK, intent);

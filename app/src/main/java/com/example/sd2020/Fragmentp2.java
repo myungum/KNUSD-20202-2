@@ -45,9 +45,6 @@ public class Fragmentp2 extends Fragment{
     private Context mContext;
     private ArticleAdapter mAdapter;
 
-    int standardSize_X, standardSize_Y;
-    float density;
-
     private Button button;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;

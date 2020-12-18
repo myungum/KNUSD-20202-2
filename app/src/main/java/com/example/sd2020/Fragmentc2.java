@@ -1,16 +1,21 @@
 package com.example.sd2020;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sd2020.Diary.Article;
 import com.example.sd2020.Diary.ArticleAdapter;
 import com.example.sd2020.Diary.WritediaryActivity;
+import com.example.sd2020.Schedule.Work;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +36,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
@@ -67,11 +74,12 @@ public class Fragmentc2 extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_fragment_c2, container, false);
+        return inflater.inflate(R.layout.activity_fragment_p2, container, false);
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         button = (Button)getView().findViewById(R.id.button_write);
         button.setOnClickListener(new View.OnClickListener() {
@@ -122,20 +130,17 @@ public class Fragmentc2 extends Fragment{
                     intent.putExtra("id", article.getId());
                     intent.putExtra("familyId", familyId);
                     startActivityForResult(intent, ACTIVITY_CODE);
-                    //getActivity().finish();
                 }
                 catch (Exception e) {
                     Log.e("Fragmentc2", e.getMessage());
                 }
             }
-
             @Override
             public void onLongClick(View view, int position) {
-
             }
         }));
-
     }
+
 
     public interface ClickListener {
         void onClick(View view, int position);
@@ -162,7 +167,6 @@ public class Fragmentc2 extends Fragment{
             });
         }
 
-
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             View child = rv.findChildViewUnder(e.getX(), e.getY());
@@ -186,6 +190,5 @@ public class Fragmentc2 extends Fragment{
         intent.putExtra("id","null");
         intent.putExtra("familyId", familyId);
         startActivityForResult(intent, ACTIVITY_CODE);
-        //getActivity().finish();
     }
 }
