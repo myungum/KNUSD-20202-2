@@ -101,8 +101,8 @@ public class Fragmentp1 extends Fragment {
                                         WeekViewEvent event = work.getWeekViewEvent(week);
                                         events.add(event);
                                     }
-                                    c.add(Calendar.DATE, 1);
                                 }
+                                c.add(Calendar.DATE, 1);
                             }
                             return events;
                         }
