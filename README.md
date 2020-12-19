@@ -8,9 +8,9 @@
 보호자가 환자의 약 먹을 시간/가스 불 끄기 등 중요한 일을 스케줄링해서 기억력 장애를 겪는 환자의 생활을 도울 수 있습니다. 물건의 위치나 중요한 장소를 잊어버리는 환자를 위해 환자가 직접 또는 보호자가 해당 사진을 찍어 공유합니다. 치매 환자의 생활을 도움으로써 사소한 불편들을 해소하고 궁극적으로 치매 환자들의 삶의 질을 향상시키는 것이 목표입니다.
 
 ## 실행 화면
-![1](./screenshots/1.jpg){: width="30%" height="30%"}
-![2](./screenshots/2.jpg){: width="30%" height="30%"}
-![3](./screenshots/3.jpg){: width="30%" height="30%"}
+<img src="./screenshots/1.jpg" width="30%">
+<img src="./screenshots/2.jpg" width="30%">
+<img src="./screenshots/3.jpg" width="30%">
 
 ## 요구사항
 안드로이드 9.0 이상
